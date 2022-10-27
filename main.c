@@ -1,49 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct pixel {
+
+    int r;
+    int g;
+    int b;
+};
+
 int main(){
 
-    char * buffer;
+    struct pixel * pilha;
     FILE *file;
-    long filesize;
-    size_t resultado;
-    int i;
+    int i, j;
+    int teste[32][32];
+    int valor;
 
-    file = fopen("C:\\Users\\rafael.venetikides\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
+    file = fopen("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
+    // file = fopen("C:\\Users\\rafael.venetikides\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
 
     if (file == NULL){
-        printf("Erro do arquivo");
+        printf("Erro do arquivo\n");
         exit(1);
     }
     else{
-        printf("Arquivo aberto");
+        printf("Arquivo aberto\n");
     }
 
-    fseek(file, 0, SEEK_END);
-    filesize = ftell(file);
-    rewind(file);
-
-    buffer = (char*) malloc(sizeof(char)*filesize);
-
-    if (buffer == NULL){
-        printf("Erro de memória");
-        exit(2);
+    for (i = 0; i < 1024; i++){
+        fscanf(file, "%d   ", &valor);
+        if (valor == 0){
+            teste[i] = 0; 
+        }
+        else{
+            teste [i] = 1;
+        }
     }
-
-    resultado = fread(buffer, 1, filesize, file);
-    if (resultado != filesize){
-        printf("Erro de Leitura");
-        exit(3);
+    for (i = 0; i > 32; i++){
+        for (j = 0; j > 32; j++){
+            printf("%d", teste[i][j]);
+        }
     }
-
-    for (i = 0; i < filesize; i++){
-        printf("%c", buffer);
-        printf(" local: (%x) i: (%d)\n", *buffer, i);
-        buffer++;
-    }
-    
     fclose(file);
-    free(buffer);
 
     return 0;
 }
