@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct pixel {
 
-    int r;
-    int g;
-    int b;
+    int x;
+    int y;
 };
 
 int main(){
 
     struct pixel * pilha;
     FILE *file;
-    int i, j;
-    int teste[32][32];
-    int valor;
+    char buffer[1000];
+    bool keep_reading = true;
+    int current_line = 1;
+    int read_line = 4;
 
     file = fopen("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
     // file = fopen("C:\\Users\\rafael.venetikides\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
@@ -27,20 +28,21 @@ int main(){
         printf("Arquivo aberto\n");
     }
 
-    for (i = 0; i < 1024; i++){
-        fscanf(file, "%d   ", &valor);
-        if (valor == 0){
-            teste[i] = 0; 
+    do{
+        fgets(buffer, 1000, file);
+        if (feof(file)){
+            keep_reading = false;
+            printf("File %c lines\n", current_line - 1);
+            printf("Couldnt find line");
         }
-        else{
-            teste [i] = 1;
+        else if(current_line == read_line){
+            keep_reading = false;
+            printf("line :\n %d", buffer);
         }
-    }
-    for (i = 0; i > 32; i++){
-        for (j = 0; j > 32; j++){
-            printf("%d", teste[i][j]);
-        }
-    }
+        current_line++;
+
+    }while (keep_reading);
+
     fclose(file);
 
     return 0;

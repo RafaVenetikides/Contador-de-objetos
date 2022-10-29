@@ -132,9 +132,9 @@ void changeColorPPM(PPMImage *img)
 
 int main(){
     PPMImage *image;
-    image = readPPM("01.ppm");
+    image = readPPM("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm");
     changeColorPPM(image);
-    writePPM("01.ppm",image);
+    writePPM("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm",image);
     printf("Press any key...");
     getchar();
 }
