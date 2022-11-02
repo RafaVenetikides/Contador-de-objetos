@@ -16,7 +16,7 @@ int main(){
 
     buffer = malloc(filesize + 1);
 
-    fread(buffer, filesize, 1, file);
+    /*fread(buffer, filesize, 1, file);
     fscanf(file, "%d", buffer);
     printf("%s", buffer);
     
@@ -33,8 +33,8 @@ int main(){
         fscanf(file, "%s", img);
         printf("%s \n", img);
     }
-
-    /*
+*/
+    
     fscanf(file, "%s", img);
     printf("%s \n", img);
 
@@ -46,7 +46,7 @@ int main(){
 
     fscanf(file, "%s", img);
     fprintf(pFile, "%s", img);
-    printf("%s \n", img);*/
+    printf("%s \n", img);
     
     
 
