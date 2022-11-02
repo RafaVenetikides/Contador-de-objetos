@@ -44,8 +44,7 @@ int main(){
 
     for(i = 0; i < height; i++){
         for(j = 0; j < (length*3); j++){
-            printf("i %d j %d", i, j);
-            printf(" matriz(%d) ", matriz[i][j]);
+            printf("%d ", matriz[i][j]);
         }
         printf("\n");
     }
