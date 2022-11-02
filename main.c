@@ -17,7 +17,7 @@ int main(){
     int current_line = 1;
     int read_line = 4;
 
-    file = fopen("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
+    file = fopen("PjBL2 - Imagens\\01.ppm", "rb");
     // file = fopen("C:\\Users\\rafael.venetikides\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "rb");
 
     if (file == NULL){

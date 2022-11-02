@@ -4,7 +4,7 @@
 int main ()
 {
     // open the file
-    FILE *fp = fopen("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "r");
+    FILE *fp = fopen("PjBL2 - Imagens\\01.ppm", "r");
  
     int i = 0;
     // Return if could not open file

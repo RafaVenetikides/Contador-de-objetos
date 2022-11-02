@@ -10,15 +10,16 @@ int main(){
     i = 1;
     file = fopen("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\PjBL2 - Imagens\\01.ppm", "r");
     pFile = fopen ("D:\\OneDrive - Grupo Marista\\PI\\Contador de objetos\\teste.txt","w+");
-    /*fseek(file, 0, SEEK_END);
+    fseek(file, 0, SEEK_END);
     filesize = ftell(file);
+    rewind(file);
 
     buffer = malloc(filesize + 1);
 
     fread(buffer, filesize, 1, file);
     fscanf(file, "%d", buffer);
     printf("%s", buffer);
-    */
+    
 
    while(!feof(file)){
         fgets(line, 3072, file);
