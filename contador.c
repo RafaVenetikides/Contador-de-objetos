@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>  
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct sPixel{
     int fundo;
@@ -89,8 +90,9 @@ void leVizinhos(Pilha *pilha, int i, int j, sPixel **matriz, int linhas, int col
 }
 
 int main() {
-    char arq[] ="PjBL2-Imagens\\01.ppm";  
-    FILE *fp;  
+    char arq[22] = "PjBL2-Imagens\\";
+    FILE *fp; 
+    char nome[7];
 
     char id[3];
     int colunas, linhas, maximo;
@@ -100,6 +102,10 @@ int main() {
     struct sPixel **matriz;
     int posicao, objetos;
     Pilha p;
+
+    printf("Digite o arquivo que deseja abrir: ");
+    scanf("%s", &nome);
+    strcat(arq, nome);
 
     fp = fopen(arq, "rb"); 
     if (fp == NULL) {  
